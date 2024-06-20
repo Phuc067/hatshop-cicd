@@ -1,5 +1,12 @@
 pipeline {
     agent any
+    environment{
+      MYSQL_ROOT_PASSWORD= "root_password"
+      MYSQL_DATABASE= "magento_db"
+      MYSQL_USER= "magento_user"
+      MYSQL_PASSWORD= "magento_pass"
+    }
+      
 
     stages {
         stage('Checkout') {
@@ -25,7 +32,7 @@ pipeline {
         stage('Build and Deploy') {
             steps {
                 script {
-                    // Xây dựng và triển khai bằng Docker Compose
+                    
                     try {
                         bat 'docker-compose down'
                         // Chỉ khởi động lại dịch vụ WordPress
@@ -41,7 +48,6 @@ pipeline {
 
         stage('Post-deploy Cleanup') {
             steps {
-                // Bất kỳ bước dọn dẹp nào sau triển khai, nếu cần
                 bat 'docker system prune -f'
             }
         }
@@ -49,7 +55,6 @@ pipeline {
 
     post {
         always {
-            // Luôn luôn lưu trữ log
             archiveArtifacts artifacts: '**/logs/**', allowEmptyArchive: true
         }
     }
