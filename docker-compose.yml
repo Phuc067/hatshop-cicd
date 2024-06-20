@@ -65,4 +65,4 @@ services:
       MYSQL_USER: magento_user
       MYSQL_PASSWORD: magento_pass
     volumes:
-      - ./magento/db_data:/var/lib/mysql
+      - ./magento/db_data:/var/lib/mysql:rw
