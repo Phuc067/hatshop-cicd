@@ -36,7 +36,7 @@ pipeline {
                     try {
                         bat 'docker-compose down'
                         // Chỉ khởi động lại dịch vụ WordPress
-                        bat 'docker-compose up --build'
+                        bat 'docker-compose up -d'
                     } catch (Exception e) {
                         echo "Error during Docker Compose operations: ${e}"
                         currentBuild.result = 'FAILURE'
