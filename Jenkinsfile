@@ -28,14 +28,6 @@ pipeline {
                 }
             }
         }
-         stage('Build Docker Images') {
-            steps {
-                script {
-                    // Build the custom MySQL image
-                    sh 'docker-compose build magento_db'
-                }
-            }
-        }
 
         stage('Build and Deploy') {
             steps {
