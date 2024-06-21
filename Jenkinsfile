@@ -29,7 +29,7 @@ pipeline {
                     
                     try {
                         bat 'docker-compose down'
-                        // Chỉ khởi động lại dịch vụ WordPre
+                        // Chỉ khởi động lại dịch vụ WordPress
                         bat 'docker-compose up -d'
                     } catch (Exception e) {
                         echo "Error during Docker Compose operations: ${e}"
@@ -39,7 +39,6 @@ pipeline {
                 }
             }
         }
-
         stage('Post-deploy Cleanup') {
             steps {
                 bat 'docker system prune -f'

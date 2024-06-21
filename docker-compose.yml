@@ -34,7 +34,6 @@ services:
       MYSQL_PASSWORD: wordpress_pass
     volumes:
       - ./wordpress/db_data:/var/lib/mysql:rw
-
   magento:
     image: markoshust/magento-nginx:latest
     ports:
