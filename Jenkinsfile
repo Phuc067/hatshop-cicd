@@ -29,7 +29,7 @@ pipeline {
                     
                     try {
                         bat 'docker-compose down'
-                        // Chỉ khởi động lại dịch vụ WordPress
+                        // Chỉ khởi động lại dịch vụ WordPre
                         bat 'docker-compose up -d'
                     } catch (Exception e) {
                         echo "Error during Docker Compose operations: ${e}"
