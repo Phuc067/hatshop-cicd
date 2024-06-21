@@ -1,11 +1,5 @@
 pipeline {
     agent any
-    environment{
-      MYSQL_ROOT_PASSWORD= "root_password"
-      MYSQL_DATABASE= "magento_db"
-      MYSQL_USER= "magento_user"
-      MYSQL_PASSWORD= "magento_pass"
-    }
       
 
     stages {
