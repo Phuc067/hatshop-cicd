@@ -58,7 +58,7 @@ services:
       - magento_db
 
   magento_db:
-    build: ./magento_db
+    image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: magento_db
