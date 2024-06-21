@@ -14,7 +14,7 @@ pipeline {
             steps {
                 // List directory contents to verify checkout
                 bat 'dir'
-                // Check for docker-compose.yml file
+                
                 script {
                     if (!fileExists('docker-compose.yml')) {
                         error "docker-compose.yml file not found"
