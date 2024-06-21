@@ -33,7 +33,7 @@ services:
       MYSQL_USER: wordpress_user
       MYSQL_PASSWORD: wordpress_pass
     volumes:
-      - ./wordpress/db_data:/var/lib/mysql
+      - ./wordpress/db_data:/var/lib/mysql:rw
 
   magento:
     image: markoshust/magento-nginx:latest
@@ -58,7 +58,7 @@ services:
       - magento_db
 
   magento_db:
-    image: mysql:5.7
+    build: ./magento_db
     environment:
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: magento_db
